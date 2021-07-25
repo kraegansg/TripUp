@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace TripUp.Data
 {
-    class ToDoList
+    public class ToDoList
     {
         [Key]
         public int ToDoListId { get; set; }
 
-        [ForeignKey(nameof(Trip))]
+        //[ForeignKey(nameof(Trip))]
         public int TripId { get; set; }
-        public virtual Trip Trip { get; set; }
+        //public virtual Trip Trip { get; set; }
 
         public string PetCareInstructions { get; set; }
         public string ChildCareInstructions { get; set; }

@@ -65,6 +65,10 @@
       <Project>{1ec69567-5efe-4072-b65e-32db7cebfa24}</Project>
       <Name>TripUp.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TripUp.Services\TripUp.Services.csproj">
+      <Project>{51d955be-f050-4e83-9dcd-d79a165ae6c8}</Project>
+      <Name>TripUp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

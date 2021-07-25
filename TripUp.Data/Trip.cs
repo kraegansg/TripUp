@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace TripUp.Data
 {
-    class Trip
+    public class Trip
     {
         [Key]
         public int TripId { get; set; }
 
         [Required]
+        [Display(Name = "Name Your Trip")]
         public string TripName { get; set; }
 
-        public int UserId { get; set; }
+        public int OwnerId { get; set; }
 
         [ForeignKey(nameof(Itinerary))]
         public int ItineraryId { get; set; }

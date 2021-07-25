@@ -260,6 +260,10 @@
       <Project>{02c11002-b7d2-4fbc-8240-731f55dac65d}</Project>
       <Name>TripUp.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TripUp.Services\TripUp.Services.csproj">
+      <Project>{51d955be-f050-4e83-9dcd-d79a165ae6c8}</Project>
+      <Name>TripUp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TripUp.Data
 {
-    class Itinerary
+    public class Itinerary
     {
         [Key]
         public int ItineraryId { get; set; }
