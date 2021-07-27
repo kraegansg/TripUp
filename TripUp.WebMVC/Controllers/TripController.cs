@@ -16,5 +16,24 @@ namespace TripUp.WebMVC.Controllers
             var model = new TripListItem[0];
             return View(model);
         }
+
+        //Add method here VVV
+        //GET
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //Add code here VVVV
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(TripCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }
