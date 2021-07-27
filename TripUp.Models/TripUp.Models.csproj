@@ -54,7 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItineraryCreate.cs" />
+    <Compile Include="ItineraryDetail.cs" />
+    <Compile Include="ItineraryEdit.cs" />
+    <Compile Include="ItineraryListItem.cs" />
+    <Compile Include="PackCreate.cs" />
+    <Compile Include="PackDetail.cs" />
+    <Compile Include="Packedit.cs" />
+    <Compile Include="PackListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToDoListCreate.cs" />
+    <Compile Include="ToDoListDetail.cs" />
+    <Compile Include="ToDoListEdit.cs" />
+    <Compile Include="ToDoListItem.cs" />
+    <Compile Include="TripCreate.cs" />
+    <Compile Include="TripDetail.cs" />
+    <Compile Include="TripEdit.cs" />
+    <Compile Include="TripListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
