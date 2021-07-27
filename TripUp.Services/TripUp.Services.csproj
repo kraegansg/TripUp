@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TripService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TripUp.Data\TripUp.Data.csproj">
+      <Project>{1ec69567-5efe-4072-b65e-32db7cebfa24}</Project>
+      <Name>TripUp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TripUp.Models\TripUp.Models.csproj">
+      <Project>{02c11002-b7d2-4fbc-8240-731f55dac65d}</Project>
+      <Name>TripUp.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,7 +17,7 @@ namespace TripUp.Data
         [Display(Name = "Name Your Trip")]
         public string TripName { get; set; }
 
-        public int OwnerId { get; set; }
+        public Guid OwnerId { get; set; }
 
         [ForeignKey(nameof(Itinerary))]
         public int ItineraryId { get; set; }
