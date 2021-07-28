@@ -59,14 +59,14 @@ namespace TripUp.Services
             }
         }
 
-        public TripDetail GetTripByName(string name)
+        public TripDetail GetTripById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = 
-                    ctx 
+                var entity =
+                    ctx
                     .Trips
-                    .Single(e => e.TripName == name && e.OwnerId == _userId);
+                    .Single(e => e.TripId == id && e.OwnerId == _userId);
                 return
                     new TripDetail
                     {
@@ -75,6 +75,24 @@ namespace TripUp.Services
                         StartingLocation = entity.StartingLocation,
                         TravelBuddies = entity.TravelBuddies
                     };
+            }
+        }
+
+        public bool UpdateTrip(TripEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Trips
+                        .Single(e => e.TripId == model.TripId && e.OwnerId == _userId);
+
+                entity.TripName = model.TripName;
+                entity.Destination = model.Destination;
+                entity.StartingLocation = model.StartingLocation;
+                entity.TravelBuddies = model.TravelBuddies;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

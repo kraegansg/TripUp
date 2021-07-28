@@ -11,7 +11,7 @@ namespace TripUp.Data
     public class Trip
     {
         [Key]
-        public Guid TripId { get; set; }
+        public int TripId { get; set; }
 
         [Required]
         [Display(Name = "Name Your Trip")]

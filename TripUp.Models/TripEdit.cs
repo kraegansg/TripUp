@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace TripUp.Models
 {
-    class TripEdit
+    public class TripEdit
     {
+        public int TripId { get; set; }
+        public string TripName { get; set; }
+        public string Destination { get; set; }
+        public string StartingLocation { get; set; }
+        public string TravelBuddies { get; set; }
     }
 }

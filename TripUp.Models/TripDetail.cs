@@ -8,6 +8,7 @@ namespace TripUp.Models
 {
     public class TripDetail
     {
+        public int TripId { get; set; }
         public string TripName { get; set; }
         public string Destination { get; set; }
         public string StartingLocation { get; set; }

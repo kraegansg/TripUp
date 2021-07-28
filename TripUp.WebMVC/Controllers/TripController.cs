@@ -36,7 +36,7 @@ namespace TripUp.WebMVC.Controllers
         {
             if (ModelState.IsValid) return View(model);
 
-            var service = CreateTripMethod();
+            var service = CreateTripService();
 
             if (service.CreateTrip(model))
             {
@@ -48,15 +48,32 @@ namespace TripUp.WebMVC.Controllers
             
         }
 
-        public ActionResult Details(string name)
+        public ActionResult Details(int id)
         {
             var svc = CreateTripService();
-            var model = svc.GetTripByName(name);
+            var model = svc.GetTripById(id);
 
             return View(model);
         }
 
-        private TripService CreateTripMethod()
+        public ActionResult Edit(int id)
+        {
+            var service = CreateTripService();
+            var detail = service.GetTripById(id);
+            var model =
+                new TripEdit
+                {
+                    TripId = detail.TripId,
+                    TripName = detail.TripName,
+                    Destination = detail.Destination,
+                    StartingLocation = detail.StartingLocation,
+                    TravelBuddies = detail.TravelBuddies,
+
+                };
+            return View(model);
+        }
+
+        private TripService CreateTripService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new TripService(userId);
