@@ -58,5 +58,24 @@ namespace TripUp.Services
                 return query.ToArray();
             }
         }
+
+        public TripDetail GetTripByName(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = 
+                    ctx 
+                    .Trips
+                    .Single(e => e.TripName == name && e.OwnerId == _userId);
+                return
+                    new TripDetail
+                    {
+                        TripName = entity.TripName,
+                        Destination = entity.Destination,
+                        StartingLocation = entity.StartingLocation,
+                        TravelBuddies = entity.TravelBuddies
+                    };
+            }
+        }
     }
 }

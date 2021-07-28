@@ -48,6 +48,14 @@ namespace TripUp.WebMVC.Controllers
             
         }
 
+        public ActionResult Details(string name)
+        {
+            var svc = CreateTripService();
+            var model = svc.GetTripByName(name);
+
+            return View(model);
+        }
+
         private TripService CreateTripMethod()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
