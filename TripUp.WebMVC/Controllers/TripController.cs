@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TripUp.Models;
+using TripUp.Services;
 
 namespace TripUp.WebMVC.Controllers
 {
@@ -13,7 +15,9 @@ namespace TripUp.WebMVC.Controllers
         // GET: Trip
         public ActionResult Index()
         {
-            var model = new TripListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TripService(userId);
+            var model = service.GetTrips();
             return View(model);
         }
 
@@ -25,15 +29,30 @@ namespace TripUp.WebMVC.Controllers
         }
 
         //Add code here VVVV
+        //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TripCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateTripMethod();
+
+            if (service.CreateTrip(model))
+            {
+                TempData["SaveResult"] = "Trip created successfully.";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "Trip could not be created.");
             return View(model);
+            
+        }
+
+        private TripService CreateTripMethod()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TripService(userId);
+            return service;
         }
     }
 }
