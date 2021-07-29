@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TripUp.Data;
+using TripUp.Models;
 
 namespace TripUp.Services
 {
@@ -16,7 +17,7 @@ namespace TripUp.Services
             _userId = userId;
         }
 
-        public bool CreateTrip(PackCreate model)
+        public bool CreatePack(PackCreate model)
         {
             var entity =
                 new Pack()
@@ -67,7 +68,7 @@ namespace TripUp.Services
                 var entity =
                     ctx
                     .Packs
-                    .Single(e => e.PacksId == id && e.OwnerId == _userId);
+                    .Single(e => e.PackId == id && e.OwnerId == _userId);
                 return
                     new PackDetail
                     {

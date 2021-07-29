@@ -21,9 +21,6 @@ namespace TripUp.WebMVC.Controllers
             var model = service.GetToDoLists();
             return View(model);
         }
-
-        //Add method here VVV
-        //GET
         public ActionResult Create()
         {
             return View();

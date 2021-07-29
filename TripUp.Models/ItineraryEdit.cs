@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace TripUp.Models
 {
-    class ItineraryEdit
+    public class ItineraryEdit
     {
+        public int ItineraryId { get; set; }
+        public string ItineraryName { get; set; }
+        public string PitStop { get; set; }
+        public int TravelDistance { get; set; }
+        public DateTime TravelTime { get; set; }
+
     }
 }

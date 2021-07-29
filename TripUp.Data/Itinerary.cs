@@ -11,6 +11,8 @@ namespace TripUp.Data
     {
         [Key]
         public int ItineraryId { get; set; }
+        public Guid OwnerId { get; set; }
+        public string ItineraryName { get; set; }
         public string PitStop { get; set; }
         public int TravelDistance { get; set; }
         public DateTime TravelTime { get; set; }

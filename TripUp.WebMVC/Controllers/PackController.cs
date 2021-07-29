@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TripUp.Models;
 using TripUp.Services;
 
 namespace TripUp.WebMVC.Controllers
@@ -20,15 +21,12 @@ namespace TripUp.WebMVC.Controllers
             return View(model);
         }
 
-        //Add method here VVV
-        //GET
         public ActionResult Create()
         {
             return View();
         }
 
-        //Add code here VVVV
-        //POST
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PackCreate model)
@@ -85,7 +83,7 @@ namespace TripUp.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = CreateTripService();
+            var service = CreatePackService();
 
             if (service.UpdatePack(model))
             {
@@ -98,7 +96,7 @@ namespace TripUp.WebMVC.Controllers
 
         public ActionResult Delete(int id)
         {
-            var svc = CreateTripService();
+            var svc = CreatePackService();
             var model = svc.GetPackById(id);
 
             return View(model);
@@ -115,7 +113,7 @@ namespace TripUp.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private PackService CreateTripService()
+        private PackService CreatePackService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PackService(userId);

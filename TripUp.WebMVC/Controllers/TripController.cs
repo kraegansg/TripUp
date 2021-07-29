@@ -28,8 +28,6 @@ namespace TripUp.WebMVC.Controllers
             return View();
         }
 
-        //Add code here VVVV
-        //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TripCreate model)
