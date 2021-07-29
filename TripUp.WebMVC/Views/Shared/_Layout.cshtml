@@ -34,6 +34,10 @@
                     {
                         <li>@Html.ActionLink("ToDoLists", "Index", "ToDoList")</li>
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Itineraries", "Index", "Itinerary")</li>
+                    }
 
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
