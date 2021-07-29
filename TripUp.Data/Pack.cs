@@ -11,6 +11,8 @@ namespace TripUp.Data
     {
         [Key]
         public int PackId { get; set; }
+        public Guid OwnerId { get; set; }
+        public string PackName { get; set; }
         public string Clothes { get; set; }
         public string BathItems { get; set; }
         public string Essentials { get; set; }

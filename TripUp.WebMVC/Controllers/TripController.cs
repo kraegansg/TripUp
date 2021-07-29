@@ -73,6 +73,48 @@ namespace TripUp.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TripEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.TripId !=id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTripService();
+
+            if (service.UpdateTrip(model))
+            {
+                TempData["SaveResult"] = "Your Trip was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your Trip could not be updated.");
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTripService();
+            var model = svc.GetTripById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateTripService();
+            service.DeleteTrip(id);
+            TempData["SaveResult"] = "Your Trip was deleted.";
+            return RedirectToAction("Index");
+        }
+
         private TripService CreateTripService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace TripUp.Models
 {
-    class ToDoListItem
+    public class ToDoListItem
     {
+        public int ToDoListId { get; set; }
+        public string ToDoListName { get; set; }
+        public string ToDoListMisc { get; set; }
+        public string PetCareInstructions { get; set; }
+        public string ChildCareInstructions { get; set; }
+        public string HouseCareInstructions { get; set; }
     }
 }

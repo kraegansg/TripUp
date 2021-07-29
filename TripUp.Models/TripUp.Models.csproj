@@ -60,7 +60,7 @@
     <Compile Include="ItineraryListItem.cs" />
     <Compile Include="PackCreate.cs" />
     <Compile Include="PackDetail.cs" />
-    <Compile Include="Packedit.cs" />
+    <Compile Include="PackEdit.cs" />
     <Compile Include="PackListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToDoListCreate.cs" />

@@ -95,5 +95,18 @@ namespace TripUp.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteTrip(int tripId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Trips
+                        .Single(e => e.TripId == tripId && e.OwnerId == _userId);
+                ctx.Trips.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
